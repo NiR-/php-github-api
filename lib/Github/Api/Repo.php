@@ -585,4 +585,9 @@ class Repo extends AbstractApi
     {
         return new Traffic($this->client);
     }
+
+    public function events($username, $repository, $page = 1)
+    {
+        return $this->get('/repos/'.rawurldecode($username).'/'.rawurldecode($repository).'/events', ['page' => $page]);
+    }
 }
